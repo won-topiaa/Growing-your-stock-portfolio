@@ -1,4 +1,4 @@
-export type { AssetClass, Holding } from './holding';
+export type { AssetClass, Holding, SellReason, BuyLot, DividendRecord } from './holding';
 export type {
   CompanionType,
   StageNumber,

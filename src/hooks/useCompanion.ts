@@ -1,14 +1,13 @@
 import { useMemo } from 'react';
 import type { Holding } from '../types';
 import { getCompanionConfig } from '../utils/companion';
-import { getDaysHeld, calculateStage, getProgressToNextStage, getNextStageDays } from '../utils/growth';
+import { calculateStage, getProgressToNextStage, getNextStageDays } from '../utils/growth';
+import { daysBetween } from '../utils/performance';
 
 export function useCompanion(holding: Holding) {
   return useMemo(() => {
     const config = getCompanionConfig(holding.assetClass);
-    const daysHeld = holding.soldDate
-      ? getDaysHeld(holding.buyDate)
-      : getDaysHeld(holding.buyDate);
+    const daysHeld = daysBetween(holding.buyDate, holding.soldDate);
     const currentStage = calculateStage(daysHeld);
     const stageInfo = config.stages[currentStage];
     const nextStageDays = getNextStageDays(currentStage);

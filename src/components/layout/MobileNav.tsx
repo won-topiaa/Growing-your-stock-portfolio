@@ -3,8 +3,8 @@ import { LayoutGrid, PlusCircle, Trophy } from 'lucide-react';
 
 const navItems = [
   { to: '/', icon: LayoutGrid, label: 'Dashboard', end: true },
-  { to: '/add', icon: PlusCircle, label: 'Add' },
-  { to: '/hall-of-fame', icon: Trophy, label: 'Hall of Fame' },
+  { to: '/add', icon: PlusCircle, label: 'Add', end: false },
+  { to: '/hall-of-fame', icon: Trophy, label: 'Hall of Fame', end: false },
 ] as const;
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
